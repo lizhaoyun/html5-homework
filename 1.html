@@ -40,11 +40,19 @@
              手 机 <input type="tel" name="telphone" required placeholder="请输入手机号"/><span>*</span>
              <br/>
              邮 箱 <input type="email" name="e-mail" required placeholder="请输入邮箱地址"/><span>*</span>
+            
+            
         </form>
     </fieldset>
     <fieldset id="two">
         <legend>录取情况</legend>
-        录取学校 <input type="text" form="educate" name="school"/>
+        录取学校 <input type="search" form="educate" name="school" list="schools"/>
+        <datalist id="schools">
+            <option value="河北师范大学">河北师范大学</option>
+            <option value="河北科技大学">河北科技大学</option>
+            <option value="上海交通大学">上海交通大学</option>
+            <option value="北京师范大学">北京师范大学</option>
+        </datalist>
         <br/>
         入学成绩 <input type="number" form="educate" name="score"/>
         <br/>
