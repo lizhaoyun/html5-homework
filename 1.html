@@ -35,7 +35,7 @@
         <form action="#" method="GET" id="educate">
              姓 名 <input type="text" name="name" required autofocus placeholder="请输入姓名"/><span>*</span>
              <br/>
-             学 号 <input type="number" name="number" required placeholder="请输入学号"/><span>*</span>
+             学 号 <input type="number" name="number" required placeholder="请输入学号" min="0"/><span>*</span>
              <br/>
              手 机 <input type="tel" name="telphone" required placeholder="请输入手机号"/><span>*</span>
              <br/>
@@ -54,7 +54,7 @@
             <option value="北京师范大学">北京师范大学</option>
         </datalist>
         <br/>
-        入学成绩 <input type="number" form="educate" name="score"/>
+        入学成绩 <input type="number" form="educate" name="score" min="0"/>
         <br/>
         入学时间 <input id="time" type="date" form="educate" name="time"/>
     </fieldset>
