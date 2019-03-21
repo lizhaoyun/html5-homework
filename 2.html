@@ -32,6 +32,7 @@
             background-color: #e0e0e0;
             position: absolute;
             left:350px;
+            display:none;
         }
         .decoration{
             background-color:#e0e0e0;
@@ -63,7 +64,7 @@
 
     //输出缓存数据
     for(var i = 0;i<localStorage.length;++i){
-        delet.style.display = "block";
+        delet.style.display="block";
         //读取数据
         var key = localStorage.key(i);
         var value = localStorage.getItem(key);
