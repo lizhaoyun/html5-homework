@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>web存储</title>
+    <style>
+        #box{
+            width:350px;
+            position: relative;
+            overflow: hidden;
+        }
+        #value{
+            width:195px;
+            height:40px;
+            border:2px solid #e1af67;
+            border-radius:3px;
+        }
+        #btn{
+            width:140px;
+            height:36px;
+            color:#949494;
+            border:1px solid #949494;
+            border-radius:3px;
+            bottom:0;
+
+        }
+        #delet{
+            width:22px;
+            height:22px;
+            color:white;
+            border:1px solid #e0e0e0;
+            background-color: #e0e0e0;
+            position: absolute;
+            left:350px;
+        }
+        .decoration{
+            background-color:#e0e0e0;
+            float:left;
+            list-style-type : none;
+            margin-right :20px;
+            margin-top:10px;
+            border:1.5px solid #cccccc;
+            height :25px;
+            padding:2px;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="GET">
+        <input id="value" name="search" type="text" placeholder="请输入想查找的商品">
+        <input id="btn" type="button" value="搜索">
+    </form>
+    <p id="target">最近搜索</p>
+    <div id="box"></div>
+    <button id="delet">X</button>
+</body>
+<script>
+    var btn = document.getElementById("btn");
+    var search = document.getElementById("value");
+    var box = document.getElementById("box");
+    var delet = document.getElementById("delet");
+
+
+    //输出缓存数据
+    for(var i = 0;i<localStorage.length;++i){
+        delet.style.display = "block";
+        //读取数据
+        var key = localStorage.key(i);
+        var value = localStorage.getItem(key);
+
+        //创建结点
+        var oldValue = document.createTextNode(value);
+        // var newBox = document.createElement("li");
+        var newBox = document.createElement("span");
+
+
+        //添加属性
+        newBox.className = "decoration";
+
+
+        //添加节点
+        newBox.appendChild(oldValue);
+        // box.appendChild(newBox);
+        box.insertBefore(newBox,box.firstChild);
+
+        
+       delet.style.top=box.offsetTop+box.offsetHeight-22+"px";
+
+    }
+
+
+    
+    
+    btn.onclick = function(){
+        delet.style.display = "block";
+
+       //获取时间
+        var date = new Date();
+        var time = date.getTime();
+       
+       //添加键值对
+       localStorage.setItem(time,search.value);
+
+       //创建文本结点，添加
+       var newValue = document.createTextNode(search.value);
+       var newli = document.createElement("span");
+        //添加属性
+       newli.className = "decoration";
+       search.value = "";
+
+
+       newli.appendChild(newValue);
+       box.insertBefore(newli,box.firstChild);
+       
+       //设置删除标志的位置
+       delet.style.top=box.offsetTop+box.offsetHeight-22+"px";
+
+    }
+
+
+    delet.onclick = function(){
+        if(window.confirm("是否要清楚全部缓存信息？")){
+            localStorage.clear();
+            box.innerHTML = "";
+            delet.style.display="none";
+                    
+        }
+    }
+
+</script>
+</html>
