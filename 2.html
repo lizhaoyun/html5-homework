@@ -44,6 +44,7 @@
             height :25px;
             padding:2px;
         }
+        
     </style>
 </head>
 <body>
@@ -52,7 +53,9 @@
         <input id="btn" type="button" value="搜索">
     </form>
     <p id="target">最近搜索</p>
-    <div id="box"></div>
+    <div id="box">
+        <div id="tip">无缓存记录</div>
+    </div>
     <button id="delet">X</button>
 </body>
 <script>
@@ -60,8 +63,10 @@
     var search = document.getElementById("value");
     var box = document.getElementById("box");
     var delet = document.getElementById("delet");
+    var tip = document.getElementById("tip");
 
-
+    
+    
     //输出缓存数据
     for(var i = 0;i<localStorage.length;++i){
         delet.style.display="block";
@@ -88,12 +93,16 @@
        delet.style.top=box.offsetTop+box.offsetHeight-22+"px";
 
     }
+    if(box.value == ""){
+        tip.style.display = "none";
+    }
 
 
     
     
     btn.onclick = function(){
         delet.style.display = "block";
+        tip.style.display = "none";
 
        //获取时间
         var date = new Date();
@@ -124,7 +133,6 @@
             localStorage.clear();
             box.innerHTML = "";
             delet.style.display="none";
-                    
         }
     }
 
