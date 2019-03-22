@@ -64,9 +64,10 @@
     var delet = document.getElementById("delet");
     var tip = document.getElementById("tip");
 
-    
     if(localStorage.length!=0){
         box.innerHTML = "";
+    tip.style.display = "none";
+       
     }
     //输出缓存数据
     for(var i = 0;i<localStorage.length;++i){
