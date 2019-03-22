@@ -53,9 +53,8 @@
         <input id="btn" type="button" value="搜索">
     </form>
     <p id="target">最近搜索</p>
-    <div id="box">
-        <div id="tip">无缓存记录</div>
-    </div>
+    <div id="box"></div>
+    <span id="tip">无缓存记录</span>
     <button id="delet">X</button>
 </body>
 <script>
@@ -66,7 +65,9 @@
     var tip = document.getElementById("tip");
 
     
-    
+    if(localStorage.length!=0){
+        box.innerHTML = "";
+    }
     //输出缓存数据
     for(var i = 0;i<localStorage.length;++i){
         delet.style.display="block";
@@ -104,23 +105,36 @@
         delet.style.display = "block";
         tip.style.display = "none";
 
+        tip.style.display = "none";
        //获取时间
         var date = new Date();
         var time = date.getTime();
        
-       //添加键值对
-       localStorage.setItem(time,search.value);
+       //判断是否重复
+       for(var i=0;i<localStorage.length;++i){
+           var key0 = localStorage.key(i);
+           var value0 = localStorage.getItem(key0);
+           if(search.value == value0){
+               search.value = "";
+               break;
+           }
+       }
 
-       //创建文本结点，添加
-       var newValue = document.createTextNode(search.value);
-       var newli = document.createElement("span");
-        //添加属性
-       newli.className = "decoration";
-       search.value = "";
+       //不重复添加
+       if(i>=localStorage.length){
+            localStorage.setItem(time,search.value);
+            //创建文本结点，添加
+            var newValue = document.createTextNode(search.value);
+            var newli = document.createElement("span");
+                //添加属性
+            newli.className = "decoration";
+            search.value = "";
 
 
-       newli.appendChild(newValue);
-       box.insertBefore(newli,box.firstChild);
+            newli.appendChild(newValue);
+            box.insertBefore(newli,box.firstChild);
+       }
+
        
        //设置删除标志的位置
        delet.style.top=box.offsetTop+box.offsetHeight-22+"px";
@@ -131,9 +145,11 @@
     delet.onclick = function(){
         if(window.confirm("是否要清楚全部缓存信息？")){
             localStorage.clear();
-            box.innerHTML = "";
+            box.innerHTML = '';
             delet.style.display="none";
+            tip.style.display = "block";
         }
+       
     }
 
 </script>
