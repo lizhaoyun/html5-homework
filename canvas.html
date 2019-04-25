@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #sp{
+            width: 300px;
+            height:300px;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            line-height: 255px;
+            text-decoration: blue;
+            overflow: hidden;
+            font-size: 50px;
+            margin-left: -5px;
+            margin-top: -5px;
+        }
+        #canvas{
+            position:absolute;
+            top:0;
+            left: 0;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div id="sp"></div>
+    <canvas width="300" height="300" id="canvas"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById("canvas");
+    var cot = canvas.getContext("2d");
+    var span = document.getElementById("sp");
+
+    //添加底片
+    var content = [];
+    for(var i=0;i<10;++i){
+        content[i] = '谢谢惠顾';
+    }
+    content[5] = "中奖了";
+    content[3] = "./xiong.jpg";
+    var nrandom = Math.floor(Math.random()*10);
+    if(nrandom ==3){
+        span.innerHTML = '<img src = "./xiong.jpg" style="margin-left:-10px;margin-top:-5px;">';
+    }else{
+        span.innerHTML += content[nrandom];
+    }
+
+
+   
+    
+
+
+    //添加遮罩
+    cot.beginPath();
+    cot.fillStyle = "gray";
+    cot.fillRect(0,0,300,300);
+    cot.fill();
+    cot.closePath();
+
+    
+
+    //画圆
+    function drawCircle(event){
+        cot.globalCompositeOperation = "destination-out";
+        cot.beginPath();
+        cot.fillStyle="black";
+        var x = event.clientX;
+        var y = event.clientY;
+        cot.arc(x,y,30,0,2*Math.PI);
+        cot.fill();
+        cot.closePath();
+    }
+
+    //鼠标事件
+
+    //点击
+    var flag = false;
+    window.onclick = function(event){
+        drawCircle(event);
+    }
+    
+    //拖拽
+    window.onmousedown = function(event){
+        flag = true;
+        drawCircle(event); 
+    }
+           
+    window.onmousemove = function(event){
+        if(flag){
+            drawCircle(event);
+            show();
+        }
+    }
+    window.onmouseup = function(){
+        flag = false;
+        show();
+    }
+
+    function show(){
+        var imgData = cot.getImageData(0, 0, 300, 300);
+        var colorData = imgData.data; 
+        var length = colorData.length; 
+        var point = 0; 
+        for (var i = 0; i < length; i ++) { 
+            var alpha = colorData[i]; 
+            if (alpha < 10) 
+                point++;
+        }
+        var percent = point /length;
+        if (percent > 0.85){
+            cot.clearRect(0,0,300,300);
+        }
+    }
+
+   
+
+    
+
+
+
+</script>
+</html>

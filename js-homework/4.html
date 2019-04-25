@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Foo(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    Foo.prototype.sayHello = function(){
+        console.log(this.name+"hello");
+    }
+
+    var f1 = new Foo("杨",23);
+    /*
+        关系一：f1对象的__proto__属性与其构造函数Foo的prototype属性，指向相同。
+        所以通过Foo实例化得到的对象可以去Foo.prototype上查找方法，例如sayHello方法。
+    */
+    console.log(f1.__proto__ == Foo.prototype);
+
+    /*
+        关系二：Foo.prototype的__proto__属性与Object的prototype指向相同。
+        Foo在原型对象(父对象)Object的原型链上。当Foo.prototype中没有要找的属性方法时，
+        通过原型链到Object上找。
+    */
+    console.log(Foo.prototype.__proto__ == Object.prototype);
+
+    /*
+        关系三：Object.prototype的__proto__属性指向为null。
+        Object为js中的顶层对象，他没有父对象，因此，再通过__proto__找其父对象找到的是null
+    */
+    console.log(Object.prototype.__proto__);
+
+
+    /*?????
+        关系四：构造函数Foo()的prototype属性指向 Foo对象的prototype属性所指向的对象。
+        prototype为函数特有的属性，从一个函数指向一个对象，即指向Foo()的函数原型对象Foo
+    */
+
+    console.log(Foo.prototype);
+
+    /*
+        关系五：Foo通过prototype找到的原型对象的constructor属性指向构造函数Foo()
+        constructor属性是对象才拥有的，它是从一个对象指向一个函数，
+        含义就是指向该对象的构造函数，每个对象都有构造函数
+        即function Foo()为Foo.prototype的构造函数
+    */
+
+    /*
+        关系六：
+    */
+
+    /*
+        关系七：
+    */
+
+    /*
+        关系八：
+    */
+
+    /*
+        关系九：
+    */
+
+    /*
+        关系十：
+    */
+
+    /*
+        关系十一：
+    */
+
+    /*
+        关系十二：
+    */
+
+    /*
+        关系十三：
+    */
+
+    /*
+        关系十四：
+    */
+
+</script>
+</html>
