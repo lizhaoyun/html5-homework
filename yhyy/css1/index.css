@@ -20,7 +20,10 @@ body{
 #bs{
     padding-bottom: 5px;
 }
-
+.navbar-collapse{
+    padding-left: 0px;
+    padding-right: 0px;
+}
 .navbar-toggle{
     border: none;
 }
@@ -686,6 +689,7 @@ footer{
     .navbar{
         width: 100%;
     }
+    
     .navbar-nav{
         margin: 0 auto;
         background-color: #fff;
@@ -714,7 +718,6 @@ footer{
         color:black;
         font-size: 18px;
         text-decoration: none;
-        padding-left: 0px;
         text-align: left;
     }
     .navbar-nav li:hover{
