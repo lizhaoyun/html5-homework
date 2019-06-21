@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ 	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">   
+    <title>Document</title>
+    <style>
+        /* 1200px 
+            <680px变为手机端显示    响应式
+            >680px pc端
+        */
+        *{
+			padding:0;
+			margin:0;
+		}
+        ul,li,ol{
+            list-style: none;
+        }
+        body{
+            background-color: #dddddd;
+        }
+
+
+        #top{
+            width:100%px;
+            height: 45px;
+            background-color: black;
+        }
+        header{
+            /* position: fixed; */
+            height: 45px;
+            background-color: black;
+        }
+        #top-content{
+            width: 1200px;
+            height: 45px;
+            background-color:black;
+            margin: 0 auto;
+        }
+
+        /* 导航 */
+        .navbar-fixed-top{
+            top:45px;
+        }
+        .navbar-brand{
+            width: 175px;
+            height: 70px;
+        }
+        .navbar-header{
+            margin:0 auto;
+        }
+        .container{
+            width:1200px;
+        }
+        #nav{
+            height: 80px;
+            margin: 0 auto;
+            background-color: #dddddd;
+        }
+        .navbar-inverse{
+            background-color: white;
+        }
+        #tlist{
+            height: 80px;
+            float: left;
+            margin-left:140px;
+        }
+
+        #up{
+            width:1200px;
+            height:80px;
+            margin:0 auto;
+        }
+        /* #dingzhi{
+            display: none;
+        } */
+
+
+        #menu{
+            width:560px;
+            height: 60px;
+        }
+        #menu li{
+            margin-right: 35px;
+            line-height: 60px;
+        }
+        #menu li a{
+            display: block;
+            height: 60px;
+            line-height: 40px;
+            color:black;
+            font-size: 18px;
+            text-decoration: none;
+            text-align: center;
+        }
+        #menu li:hover{
+            border-bottom: 3px solid #cb5405;
+        }
+        #menu li:hover a{
+            color:#cb5405;
+        }
+
+        #llocation{
+            list-style-image:url(./img/position.png);
+        }
+
+        #search span{
+            display: block;
+            width: 145px;
+            height: 40px;
+            border: 1px solid #e1e1e1;
+            border-right-style: none;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+            line-height: 40px;
+            float: left;
+            color: #535353;
+            font-weight: 100;
+            background: url(./img/position.png) no-repeat 15px;
+            background-color:#d3d3d8;
+        }
+        #search input{
+            float: left;
+            height: 40px;
+            width: 300px;
+            border:1px solid white; 
+            color: #b8b8b8;
+            font-weight: 100;
+            background-color: #e1e1e1;
+        }
+        #search button{
+            display: block;
+            width: 130px;
+            height: 40px;
+            border: 1px solid #cb5405;
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;
+            float: left;
+            background: url(./img/search.png) no-repeat center;
+            background-color: #cb5405;
+        }
+        
+
+        #one{
+            width: 1200px;
+            margin: 0 auto;
+            margin-top:30px;
+
+        }
+        #one1{
+            background: url(./img/Sbanner2.jpg) no-repeat center;
+            margin:0 auto;
+        }
+        article{
+            float: left;
+        }
+        #one>div{
+            width: 230px;
+            height: 360px;
+            float: left;
+            background-color: #14316d;
+        }
+        #one2{
+            display: block;
+            width: 100px;
+            height: 100px;
+            border:2px solid white;
+            border-radius: 50px 50px;
+            background: url(./img/SN6.png) no-repeat center;
+            margin:0 auto;
+            margin-top: 80px;
+        }
+        #one span{
+            display: block;
+            font-weight: 100;
+            font-size: 25px;
+            text-align: center;
+            color: white;
+        }
+        #one button{
+            width: 180px;
+            height: 50px;
+            background-color: #14316d;
+            color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+            margin: 0 auto;
+            margin-top: 45px;
+            margin-left: 30px;
+        }
+
+
+        
+
+
+
+
+
+
+        @media screen and (min-width:1200px){
+			#top-content{
+				width: 1200px;
+			}
+		}
+
+        @media screen and (max-width:700px){
+            .navbar-fixed-top{
+                top:0;
+            }
+            #top{
+                height: 0px;
+            }
+            header{
+                display: none;
+            }
+			#top-content{
+				display: none;
+			}
+            .container{
+                width: 680px;
+            }
+
+
+            #up{
+                width: 100%;
+            }
+            /* #dingzhi{
+                display: block;
+                width: 145px;
+                height: 30px;
+                border-radius: 5px;
+                background-color: #e8420a;
+                border:1px solid #e8420a;
+                color: white;
+                float: right;
+                margin-top: 10px;
+                margin-right: 20px;
+            } */
+            #menu{
+                width:680px;
+            }
+            #menu li{
+                float: none;
+            }
+
+
+            .pcc{
+                display: none;
+            }
+            .pphone{
+                display: block;
+            }
+		}
+    </style>
+    <script src="js/jquery.js"></script>    
+    <script src="js/bootstrap.min.js"></script> 
+</head>
+<body  data-spy = "scroll" data-target="nav">
+    <header>
+        <div id="top-content"></div>
+    </header>
+    <div class="container">
+        <nav class="nnav navbar navbar-inverse navbar-fixed-top" id="nav">
+            <div id="up" class="container-fluid">
+                    <div class="navbar-header">
+                            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#tlist">
+                                <span class="sr-only"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <button id="dingzhi">快速定制</button>
+
+                            </button>
+                            <a href="">
+                                <img src="./img/logo.png" alt="" class="navbar-brand">
+                            </a>
+                            <button id="dingzhi">快速定制</button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="tlist">
+                            <ul class="nav navbar-nav" id="menu">
+                                <li><a href="#">首页</a></li>
+                                <li><a href="#">热门路线</a></li>
+                                <li><a href="#">订单推荐</a></li>
+                                <li><a href="#">使命愿景</a></li>
+                            </ul>
+                        </div> 
+            </div>
+            
+        </nav>
+    </div>
+    <div class="container">
+            <div id="generic" class="carousel slide" data-ride="carousel" data-interval="3000" data-wrap="true">
+                    <div class="carousel-inner" >
+                        <div class="item active">
+                          <img alt="First slide" src="./img/banner.jpg" class="img-responsive">
+                            <div class="carousel-caption">
+                                <h2>悠游古欧洲  遍览德法瑞意</h2>
+                                <p>
+                                    巴黎卢浮宫、塞纳河游船、凡尔赛宫
+                                </p>
+                                <p>少女峰、大运河游船、金色列车、西庸城堡</p>
+                                <label id="search">
+                                    <span>
+                                        目的地
+                                    </span>
+                                    <input type="text" class="from-control" placeholder="| 日本  美国   英国   地中海"> 
+                                    <button></button>
+            
+                                </label>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img alt="Second slide" src="./img/banner2.jpg" class="img-responsive">
+                            <div class="carousel-caption">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#generic" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#generic" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+            </div>
+    </div>
+    <div class="container" id="one">
+        <div class="pcc">
+            <article id="one1"><img src="./img/Sbanner2.jpg" alt=""></article>
+            <div>
+                <div id="one2"></div>
+                <span>车辆接送</span>
+                <button>查看详情</button>
+            </div>
+        </div>
+        <div class="pphone">
+
+        </div>
+       
+    </div>
+    
+   
+</body>
+
+</html>
