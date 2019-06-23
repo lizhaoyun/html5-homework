@@ -20,10 +20,7 @@ body{
 #bs{
     padding-bottom: 5px;
 }
-.navbar-collapse{
-    padding-left: 0px;
-    padding-right: 0px;
-}
+
 .navbar-toggle{
     border: none;
 }
@@ -40,6 +37,10 @@ body{
 }
 .navbar-nav li:first-child{
     margin-left: 200px;
+}
+.navbar-collapse{
+    padding-left: 0px;
+    padding-right: 0px;
 }
 .navbar-nav li{
     text-align: left;
@@ -100,10 +101,16 @@ body{
  }
  #generic{
      margin-top: 120px;
+     /* height: 500px; */
  }
  #generic .bimg{
     width: 100%;
+    height: 500px;
  }
+ #generic a span img{
+     margin-top: 250px;
+ }
+ 
 
 
 
@@ -129,8 +136,16 @@ body{
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
     float: left;
-    background-image: url(./img/search.png);
+    /* background-image: url(./img/search.png); */
     background-color: #cb5405;
+}
+#search button img{
+    text-align: center;
+}
+.sosuo span img{
+    float: left;
+    margin-top: 5px;
+    margin-left: 30px;
 }
 #search span{
     display: block;
@@ -144,7 +159,7 @@ body{
     float: left;
     color: #535353;
     font-weight: 100;
-    background-image: url(./img/position.png);
+    /* background-image: url(./img/position.png); */
     background-color:#d3d3d8;
 }
 .carousel-caption{
@@ -414,9 +429,6 @@ body{
     font-size: 30px;
 }
 
-/* .container{
-    width: 1200px;
-} */
 .visa .btn{
     /* width: 1200px; */
     text-align: center;
@@ -454,8 +466,7 @@ body{
 /* 使命愿景 */
 .wwish{
     width: 100%;
-    /* margin-top: 0px; */
-    background-image: url(img/back.png);
+    background-image: url(./img/background.png);
 }
 .wimg img{
     width: 100%;
@@ -671,13 +682,17 @@ footer{
 
 
 
- @media screen and (min-width:1200px){
-    
-}
+ 
 
 @media screen and (max-width:780px){
     #generic{
         margin-top: 90px;
+    }
+    #generic .bimg{
+        height: 225px;
+    }
+    #generic a span img{
+        margin-top: 100px;
     }
     #ttop{
         height: 0px;
@@ -689,7 +704,6 @@ footer{
     .navbar{
         width: 100%;
     }
-    
     .navbar-nav{
         margin: 0 auto;
         background-color: #fff;
@@ -791,9 +805,9 @@ footer{
     .rote button{
         display: block;
     }
-    .left{
+    /* .left{
         width: 100%;
-    }
+    } */
     .ld{
         width: 100%;
     }
